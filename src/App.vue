@@ -103,6 +103,20 @@
             </DataTable>
             <Button @click="onFormSubmit" label="Create Bill" />
           </Form>
+          <div class="w-full flex justify-end mt-2 text-xs gap-1">
+            <a
+              class="flex gap-1"
+              href="https://github.com/tanawatchaijaroenice"
+              target="_blank"
+            >
+              <Image
+                src="https://avatars.githubusercontent.com/u/153838512?v=4"
+                alt="Image"
+                width="20"
+              />
+              tanawatchaijaroenice © 2024
+            </a>
+          </div>
         </template>
       </Card>
     </div>
@@ -118,6 +132,7 @@ import FloatLabel from "primevue/floatlabel";
 import Button from "primevue/button";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
+import Image from "primevue/image";
 
 const discount = ref(null);
 
@@ -206,3 +221,11 @@ interface Person {
   totalAmount: number;
 }
 </script>
+
+<style>
+.p-image {
+  img {
+    border-radius: 50%;
+  }
+}
+</style>

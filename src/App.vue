@@ -84,7 +84,7 @@
                 </template>
               </Column>
               <Column field="Delete" header="">
-                <template>
+                <template #header="">
                   <Button
                     @click="addRow()"
                     icon="pi pi-plus"
@@ -114,7 +114,7 @@
                 alt="Image"
                 width="20"
               />
-              tanawatchaijaroenice © 2024
+              tanawatchaijaroenice
             </a>
           </div>
         </template>

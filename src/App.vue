@@ -2,7 +2,9 @@
   <div class="flex justify-center items-center w-full h-screen">
     <div class="w-fit h-fit flex justify-center items-center">
       <Card class="w-full h-full">
-        <template #title>Money Calculate <span class="pi pi-wallet"></span> </template>
+        <template #title
+          >Money Calculate <span class="pi pi-wallet"></span>
+        </template>
         <template #content>
           <Form class="flex justify-center flex-col gap-4">
             <div class="flex justify-end w-full">
@@ -82,7 +84,7 @@
                 </template>
               </Column>
               <Column field="Delete" header="">
-                <template #header="props">
+                <template>
                   <Button
                     @click="addRow()"
                     icon="pi pi-plus"
@@ -99,21 +101,6 @@
                 </template>
               </Column>
             </DataTable>
-
-            <!-- <div class="card flex flex-wrap justify-start gap-4">
-              <FloatLabel variant="on">
-                <InputText id="on_label" name="name" type="text" />
-                <label for="on_label">Name</label>
-              </FloatLabel>
-              <FloatLabel variant="on">
-                <InputText id="on_label" name="amount" type="text" />
-                <label for="on_label">Amount</label>
-              </FloatLabel>
-
-              <InputText disabled />
-
-              <Button icon="pi pi-plus" aria-label="Save" />
-            </div> -->
             <Button @click="onFormSubmit" label="Create Bill" />
           </Form>
         </template>
@@ -131,8 +118,6 @@ import FloatLabel from "primevue/floatlabel";
 import Button from "primevue/button";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
-// import ColumnGroup from "primevue/columngroup"; // optional
-// import Row from "primevue/row"; // optional
 
 const discount = ref(null);
 
@@ -184,7 +169,6 @@ const addRow = () => {
 };
 
 const removeRow = (index: number) => {
-  console.log("index", index);
   persons.value.splice(index, 1);
   calDistribution();
 };
@@ -208,7 +192,6 @@ const floatDigit = (amount: number, digit = 2) => {
 };
 
 const onFormSubmit = () => {
-  console.log("persons", persons.value);
   calDistribution();
 };
 
@@ -223,5 +206,3 @@ interface Person {
   totalAmount: number;
 }
 </script>
-
-<style scoped></style>

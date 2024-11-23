@@ -19,7 +19,7 @@
                 <label for="on_label">Discount</label>
               </FloatLabel>
             </div>
-            <DataTable :value="persons" tableStyle="min-width: 50rem">
+            <DataTable :value="persons">
               <Column field="name" header="Name" class="w-[14rem]">
                 <template #body="props">
                   <InputText
@@ -40,7 +40,7 @@
                   />
                 </template>
               </Column>
-              <Column
+              <!-- <Column
                 field="Percentage"
                 header="Percentage (%)"
                 class="w-[14rem]"
@@ -54,8 +54,8 @@
                     fluid
                   />
                 </template>
-              </Column>
-              <Column
+              </Column> -->
+              <!-- <Column
                 field="DiscountAmount"
                 header="Discount Amount"
                 class="w-[14rem]"
@@ -68,8 +68,8 @@
                     fluid
                   />
                 </template>
-              </Column>
-              <Column
+              </Column> -->
+              <!-- <Column
                 field="Total Amount"
                 header="Total Amount"
                 class="w-[14rem]"
@@ -82,8 +82,8 @@
                     fluid
                   />
                 </template>
-              </Column>
-              <Column field="Delete" header="">
+              </Column> -->
+              <Column field="Delete" header="" class="w-max">
                 <template #header="">
                   <Button
                     @click="addRow()"
@@ -119,6 +119,7 @@
           </div>
         </template>
       </Card>
+      <Bill :discount="discount" :persons="persons" v-model:visible="visible" />
     </div>
   </div>
 </template>
@@ -133,8 +134,10 @@ import Button from "primevue/button";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import Image from "primevue/image";
+import Bill from "./components/Bill.vue";
 
 const discount = ref(null);
+const visible = ref(false);
 
 const persons = ref<Person[]>([
   {
@@ -147,22 +150,6 @@ const persons = ref<Person[]>([
   },
   {
     id: 2,
-    name: "",
-    amount: null,
-    percentage: 0,
-    disAmount: 0,
-    totalAmount: 0,
-  },
-  {
-    id: 3,
-    name: "",
-    amount: null,
-    percentage: 0,
-    disAmount: 0,
-    totalAmount: 0,
-  },
-  {
-    id: 4,
     name: "",
     amount: null,
     percentage: 0,
@@ -208,6 +195,7 @@ const floatDigit = (amount: number, digit = 2) => {
 
 const onFormSubmit = () => {
   calDistribution();
+  visible.value = true;
 };
 
 console.log(persons.value);
